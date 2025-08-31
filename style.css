@@ -1,0 +1,259 @@
+/* =========================
+   متغيرات عامة (موحدة)
+========================= */
+:root{
+  --bar-bg:#d7f0d7;
+  --box-bg:#f3d9f9;
+  --accent:#e6ccff;
+  --title-bg:#f3d9f9;
+
+  --bg:#f8f5ff;
+  --card:#ffffff;
+  --text:#222;
+  --muted:#666;
+  --ok:#2e8b57;
+  --bad:#d22;
+  --blue:#0b39ff;
+  --shadow:0 10px 24px rgba(0,0,0,.06);
+}
+
+/* أساسيات */
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  font-family:Tahoma, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  direction:rtl;
+  line-height:1.9;
+}
+
+/* الشريط العلوي */
+.top-bar{
+  background:var(--bar-bg);
+  display:flex; align-items:center; gap:12px;
+  padding:6px 12px; border-bottom:1px solid #cfe6cf;
+}
+.top-bar .logo{ height:28px; width:28px; }
+.search-box{
+  display:flex; align-items:center; gap:6px; flex:1;
+  max-width:320px; background:#fff; border:1px solid #cfcfcf;
+  border-radius:4px; padding:3px 6px;
+}
+.search-box input{ border:none; outline:none; flex:1; padding:4px 2px; background:transparent; font-family:inherit; }
+.search-box button{ border:none; background:transparent; cursor:pointer; font-size:16px; }
+.top-links{ margin-inline-start:auto; display:flex; gap:14px; font-size:14px; }
+.top-links a{ color:#222; text-decoration:none; }
+.top-links a:hover{ text-decoration:underline; }
+
+/* تخطيط عام: عمود جانبي + محتوى */
+.layout{ display:flex; gap:22px; max-width:1100px; margin:18px auto; padding:0 12px; }
+.sidebar{ width:280px; min-width:260px; }
+.content{ flex:1; }
+
+/* ودجتات العمود الجانبي */
+.widget{
+  background:#fff; border:1px solid #ddd; border-radius:8px;
+  padding:12px; margin-bottom:16px; box-shadow:0 4px 14px rgba(0,0,0,.04);
+}
+.widget .title{ font-weight:700; margin:0 0 10px; }
+.categories ul{ list-style:disc; padding:0 18px; margin:0; }
+.categories li{ margin:6px 0; color:#0b7a0b; }
+.categories a{ color:#0b7a0b; text-decoration:none; }
+.categories a:hover{ text-decoration:underline; }
+
+/* عداد الزيارات */
+.digits{ display:inline-flex; gap:6px; }
+.digit{
+  width:28px; height:36px; background:#000; color:#fff;
+  font-weight:700; font-family:monospace; border-radius:4px;
+  display:inline-flex; align-items:center; justify-content:center;
+  box-shadow:inset 0 -2px 0 rgba(255,255,255,.15);
+}
+.archive-select{ width:100%; padding:8px; border:1px solid #ccc; border-radius:6px; }
+
+/* نص تعريفي */
+.intro{
+  background:#fff; border:1px solid #ddd; border-radius:10px;
+  padding:18px; margin:0 auto 18px; max-width:720px; text-align:center; line-height:1.9;
+}
+.intro h1{ color:#2e8b57; margin:6px 0 12px; }
+.green{ color:#2e8b57; }
+.red{ color:var(--bad); font-weight:700; }
+.blue{ color:var(--blue); font-weight:700; }
+
+/* صندوق اللعبة */
+.container{
+  max-width:380px; margin:0 auto 32px;
+  background:var(--box-bg);
+  border:2px solid #000; border-radius:4px;
+  padding:10px; text-align:center;
+}
+
+/* شريط الحالة */
+.status-bar{
+  display:flex; justify-content:space-between; gap:4px; margin-bottom:6px;
+}
+.status-bar div, .status-bar button{
+  flex:1; padding:6px; font-weight:700; font-size:14px; border:1px solid #000;
+}
+.score{ background:#cce0ff; }
+.start{ background:#fff59d; cursor:pointer; }
+.time{  background:#ffc9e0; }
+
+/* عنوان اللعبة */
+h2{
+  background:var(--title-bg); padding:6px; border:1px solid #000;
+  margin:10px 0; font-size:18px;
+}
+
+/* منطقة الإدخال */
+.input-area{
+  display:flex; align-items:center; justify-content:center; gap:4px;
+  margin:8px 0; flex-wrap:wrap;
+}
+input[type="text"]{
+  padding:4px; width:60%; min-width:150px;
+  text-align:center; font-size:14px; border:1px solid #000; background:#fff;
+}
+.info-btn{
+  background:var(--box-bg); padding:4px 10px; border:1px solid #000; cursor:pointer;
+}
+
+/* صورة صندوق اللعبة فقط (بدل img العام) */
+.container img{
+  width:150px; margin-top:10px; height:auto; display:block; margin-inline:auto;
+}
+
+/* فوتر الصندوق فقط */
+.container footer{
+  background:var(--title-bg);
+  margin-top:10px; padding:4px; font-weight:700; font-size:12px; border:1px solid #000;
+}
+
+/* استجابة */
+@media (max-width:900px){
+  .layout{ flex-direction:column; }
+  .sidebar{ width:100%; }
+}
+
+/* الغلاف الأوسط (قالب التحدي) */
+.wrap{
+  max-width:760px; margin:32px auto 60px;
+  background:var(--card); border:1px solid #eee; border-radius:12px;
+  padding:26px 22px; box-shadow:var(--shadow); text-align:center;
+}
+.title{ margin:0 0 10px; color:var(--ok); font-size:28px; }
+.bism{ margin:0 0 16px; color:var(--muted); }
+.lead{ margin:0 auto 18px; max-width:620px; }
+.section{ margin:10px 0 8px; color:var(--ok); }
+
+/* قائمة التعليمات */
+.bullets{
+  display:inline-block; text-align:right; padding:0 20px; margin:0 0 12px 0;
+}
+.bullets li{ margin:6px 0; }
+.ok{ color:var(--ok); font-weight:700; }
+.bad{ color:var(--bad); font-weight:700; }
+.note{ margin:8px 0 12px; }
+
+/* صورة البدء */
+.start-img{
+  display:inline-block; border:1px solid #e1defa; border-radius:10px;
+  padding:10px 12px; background:#fbf9ff;
+  transition:transform .08s ease-in-out, box-shadow .12s;
+}
+.start-img:hover{ transform:translateY(-2px); box-shadow:0 12px 22px rgba(0,0,0,.10); }
+.start-img img{ width:220px; height:auto; display:block; }
+
+/* استجابة صغيرة */
+@media (max-width:520px){
+  .wrap{ margin:18px 12px 42px; padding:18px 14px; }
+  .title{ font-size:24px; }
+  .start-img img{ width:200px; }
+}
+
+/* =========================
+   إضافات مرتبة وآمنة
+========================= */
+
+/* خلفية جانبية خضراء مع شريط أبيض بالنص (اختيارية) */
+body.bg-sides{
+  background:linear-gradient(90deg,#cfeec3 0 18%,#ffffff 18% 82%,#cfeec3 82% 100%);
+}
+
+/* Hero */
+.hero{ max-width:840px; margin:24px auto 60px; text-align:center; line-height:2.1; padding:0 16px; }
+.hero .green{ color:#2e8b57; font-weight:700; }
+.hero .red{ color:#d22; font-weight:700; }
+.hero .blue{ color:#0b39ff; font-weight:700; }
+
+/* الكرت (البوستر) القابل للنقر */
+.poster{
+  display:inline-block; padding:14px; border:6px solid #f6b3c4; border-radius:14px;
+  background:linear-gradient(#eaf7ff,#ffffff);
+  box-shadow:0 10px 20px rgba(0,0,0,.08);
+  transition:transform .12s ease, box-shadow .15s ease; text-decoration:none;
+}
+.poster:hover{ transform:translateY(-2px); box-shadow:0 16px 28px rgba(0,0,0,.12); }
+.poster img{
+  width:290px; max-width:70vw; height:auto; display:block; border-radius:8px; margin:8px auto 10px;
+}
+.poster .cta{
+  display:inline-block; padding:8px 18px; border:1px solid #000; border-radius:10px;
+  background:#ffd4e1; font-weight:700; margin-top:6px;
+}
+
+/* بطاقات عامة */
+.card{
+  background:#fff; border:1px solid #eaeaea; border-radius:14px;
+  box-shadow:0 10px 24px rgba(0,0,0,.06); padding:22px 20px; margin:16px 0 28px;
+}
+
+/* عنوان ونص المقدّمة داخل البطاقة */
+.page-title{ margin:6px 0 10px; font-size:28px; color:#2e8b57; text-align:center; }
+.brand-logo{ width:70px; height:70px; object-fit:contain; display:block; margin:0 auto 8px; opacity:.9; }
+.intro .lead{ margin:8px auto; max-width:640px; line-height:2; }
+
+/* تحسينات اختيارية لصندوق اللعبة عند إضافة neat */
+.container.neat{
+  max-width:680px; background:#f7ecff; border:1px solid #d9c7ff;
+  border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,.05); padding:16px 14px;
+}
+.container.neat h2{
+  background:#fff; border:1px solid #ddd; border-radius:10px;
+  padding:8px; margin:12px 0; font-size:20px; text-align:center;
+}
+.container.neat img{
+  width:220px; height:auto; display:block; margin:12px auto; border-radius:10px;
+}
+.container.neat footer{
+  background:#fff; border:1px solid #eee; border-radius:10px; padding:8px; font-weight:600; font-size:13px;
+}
+
+/* استجابة للهيرو */
+@media (max-width:560px){
+  .page-title{ font-size:24px; }
+}
+/* اختياري: ترتيب وفواصل بين الدروس في نفس الصفحة */
+.lesson-block { 
+  margin: 26px 0 34px; 
+}
+.lesson-block + .lesson-block{
+  border-top: 1px dashed #ddd;
+  padding-top: 22px;
+}
+
+/* اختياري: تحسين الحقل على الشاشات الصغيرة */
+@media (max-width: 520px){
+  .input-area input[type="text"]{ width: 100%; }
+}
+
+/* اختياري: توحيد زر "ابدأ اللعب" */
+.start{
+  transition: transform .05s ease;
+}
+.start:active{
+  transform: translateY(1px);
+}
+
